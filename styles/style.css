@@ -113,9 +113,17 @@ main {
     background-color: #049C0A;
 }
 
+.positive-button:hover {
+    background-color: rgba(4, 156, 10, 0.75);
+}
+
 .negative-button {
     background: none;
     border: 2px solid #7B0E0E;
+}
+
+.negative-button:hover {
+    background-color: #0E0E0E;
 }
 
 .button {
