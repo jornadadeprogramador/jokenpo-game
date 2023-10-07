@@ -10,24 +10,50 @@
 <body>
     <main>
         <!-- Home -->
-        <div class="home">
+        <div class="home hidden">
             <h1 class="home__title">JOKENPÔ</h1>
             <!-- Botões -->
             <div class="options">
-                <button class="options__item">
+                <button class="button options__item">
                     <img src="/assets/pedra.png" alt="Ícone de pedra">
                     <p class="options__text">PEDRA</p>
                 </button>
-                <button class="options__item">
+                <button class="button options__item">
                     <img src="/assets/papel.png" alt="Ícone de papel">
                     <p class="options__text">PAPEL</p>
                 </button>
-                <button class="options__item">
+                <button class="button options__item">
                     <img src="/assets/tesoura.png" alt="Ícone de tesoura">
                     <p class="options__text">TESOURA</p>
                 </button>
             </div>
             <p class="home__subtitle">escolha uma opção</p>
+        </div>
+        <!-- Placar -->
+        <div class="score">
+            <!-- Card - Score -->
+            <div class="score-card">
+                <!-- Jogador -->
+                <div class="score-card__item">
+                    <img src="/assets/papel-green.png" alt="Ícone da jogada do jogador">
+                    <p class="score-card__text">VOCÊ</p>
+                    <p class="score-card__text">1</p>
+                </div>
+                <!-- Resultado -->
+                <div class="score-card__item">
+                    <img src="/assets/guaxinim.png" alt="Ícone que indica o resultado da partida">
+                    <p class="score-card__text">GANHOU</p>
+                </div>
+                <!-- Máquina -->
+                <div class="score-card__item">
+                    <img src="/assets/papel-gray.png" alt="Ícone da jogada da máquina">
+                    <p class="score-card__text">MÁQUINA</p>
+                    <p class="score-card__text">1</p>
+                </div>
+            </div>
+            <!-- Botões -->
+            <button class="button text-button positive-button">JOGAR NOVAMENTE</button>
+            <button class="button text-button negative-button">ZERAR PLACAR</button>
         </div>
     </main>
 </body>
