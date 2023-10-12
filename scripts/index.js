@@ -22,9 +22,21 @@ function jogar(jogada) {
         console.log("PERDEU")
     }
 
+    // Exibir a jogada do jogador no placar
     exibirJogadaJogador(jogada, resultado)
+    
+    // Exibir a jogada da máquina no placar
+    exibirJogadaMaquina(jogadaMaquina)
 
     alternarLayouts()
+}
+
+function exibirJogadaMaquina(jogada) {
+    // Recuperar o elemento de img do HTML
+    let img = document.getElementById('jogada-maquina-img')
+    
+    // Alterar a imagem do componente
+    img.src = `/assets/${jogada}-gray.png`
 }
 
 function exibirJogadaJogador(jogada, resultado) {
