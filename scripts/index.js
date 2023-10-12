@@ -22,7 +22,30 @@ function jogar(jogada) {
         console.log("PERDEU")
     }
 
+    exibirJogadaJogador(jogada, resultado)
+
     alternarLayouts()
+}
+
+function exibirJogadaJogador(jogada, resultado) {
+    // Recuperar o elemento img do HTML
+    let img = document.getElementById('jogada-jogador-img')
+
+    let color = 'gray'
+
+    switch(resultado) {
+        case Resultado.GANHOU:
+            color = 'green'
+            break
+        case Resultado.PERDEU:
+            color = 'red'
+            break
+        default:
+            color = 'gray'
+            break
+    }
+    
+    img.src = `/assets/${jogada}-${color}.png`
 }
 
 function alternarLayouts() {
