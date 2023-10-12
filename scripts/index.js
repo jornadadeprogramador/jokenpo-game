@@ -5,6 +5,10 @@ const Resultado = {
     EMPATOU: 2
 }
 
+// Placar do Jogador e da Máquina
+let placarJogador = 0
+let placarMaquina = 0
+
 function jogar(jogada) {
     
     // Obter a jogada da máquina
@@ -31,7 +35,31 @@ function jogar(jogada) {
     // Exibir o resultado
     exibirResultado(resultado)
 
+    // Calcular o placar
+    atualizarPlacar(resultado)
+
+    // Atualizar o placar
+    exibirPlacar()
+
     alternarLayouts()
+}
+
+function exibirPlacar() {
+    let placarJogadorText = document.getElementById('placar-jogador-text')
+    let placarMaquinaText = document.getElementById('placar-maquina-text')
+
+    placarJogadorText.innerText = placarJogador
+    placarMaquinaText.innerText = placarMaquina
+}
+
+function atualizarPlacar(resultado) {
+    if (resultado === Resultado.GANHOU) {
+        // Contar ponto para o Jogador
+        placarJogador++
+    } else if (resultado === Resultado.PERDEU) {
+        // Contar ponto para a Máquina
+        placarMaquina++
+    }
 }
 
 function exibirResultado(resultado) {
