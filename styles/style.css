@@ -1,6 +1,8 @@
 :root {
     --red-color: #F00;
     --white-color: #FFF;
+    --ganhou-color: #05CC0D;
+    --empate-color: #DDFA2B;
 }
 
 * {

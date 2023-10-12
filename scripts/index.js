@@ -28,7 +28,38 @@ function jogar(jogada) {
     // Exibir a jogada da máquina no placar
     exibirJogadaMaquina(jogadaMaquina)
 
+    // Exibir o resultado
+    exibirResultado(resultado)
+
     alternarLayouts()
+}
+
+function exibirResultado(resultado) {
+    // Recuperar a imagem do HTML
+    let img = document.getElementById('resultado-img')
+    let text = document.getElementById('resultado-text')
+    let textColor = ''
+
+    switch(resultado) {
+        case Resultado.GANHOU:
+            img.src = `/assets/guaxinim.png`
+            text.innerText = 'GANHOU'
+            textColor = '--ganhou-color'
+            break
+        case Resultado.PERDEU:
+            img.src = `/assets/morte.png`
+            text.innerText = 'PERDEU'
+            textColor = '--red-color'
+            break
+        default:
+            img.src = `/assets/dino.png`
+            text.innerText = 'EMPATE'
+            textColor = '--empate-color'
+            break
+    }
+
+    // Alterar a cor do texto
+    text.style.color = getComputedStyle(document.documentElement).getPropertyValue(textColor)
 }
 
 function exibirJogadaMaquina(jogada) {
