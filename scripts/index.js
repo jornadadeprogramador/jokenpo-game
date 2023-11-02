@@ -13,18 +13,9 @@ function jogar(jogada) {
     
     // Obter a jogada da máquina
     let jogadaMaquina = obterJogadaMaquina()
-    console.log(`${jogada} vs ${jogadaMaquina}`)
 
     // Obter o resultado da partida
     let resultado = obterResultado(jogada, jogadaMaquina)
-
-    if (resultado === Resultado.EMPATOU) {
-        console.log("EMPATE")
-    } else if (resultado === Resultado.GANHOU) {
-        console.log("GANHOU")
-    } else if (resultado === Resultado.PERDEU) {
-        console.log("PERDEU")
-    }
 
     // Exibir a jogada do jogador no placar
     exibirJogadaJogador(jogada, resultado)
@@ -169,16 +160,15 @@ function obterJogadaMaquina() {
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
-  
 
 function jogarNovamente() {
-    console.log("Jogar novamente")
-
     alternarLayouts()
 }
 
 function zerarPlacar() {
-    console.log("Zerar placar")
+    // Zerar as variáveis
+    placarJogador = 0
+    placarMaquina = 0
 
     alternarLayouts()
 }
