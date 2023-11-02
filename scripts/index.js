@@ -32,6 +32,8 @@ function jogar(jogada) {
     // Atualizar o placar
     exibirPlacar()
 
+    adicionarAnimacao(resultado)
+
     alternarLayouts()
 }
 
@@ -112,10 +114,14 @@ function exibirJogadaJogador(jogada, resultado) {
 
 function alternarLayouts() {
     let home = document.getElementsByClassName('home')[0]
-    let score = document.getElementsByClassName('score')[0]
+    let score = getScoreElement()
 
     home.classList.toggle('hidden')
     score.classList.toggle('hidden')
+}
+
+function getScoreElement() {
+    return document.getElementsByClassName('score')[0]
 }
 
 function obterResultado(jogada, jogadaMaquina) {
@@ -171,4 +177,17 @@ function zerarPlacar() {
     placarMaquina = 0
 
     alternarLayouts()
+}
+
+function adicionarAnimacao(resultado) {
+    let score = getScoreElement()
+    if (resultado === Resultado.PERDEU) {
+        score.classList.add('animate__shakeX')
+    } else {
+        score.classList.add('animate__fadeIn')
+    }
+    // Remover as animações sempre que as mesmas terminarem
+    score.addEventListener('animationend', () => {
+        score.classList.remove('animate__shakeX', 'animate__fadeIn')
+    })
 }
