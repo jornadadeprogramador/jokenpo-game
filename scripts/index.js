@@ -9,6 +9,12 @@ const Resultado = {
 let placarJogador = 0
 let placarMaquina = 0
 
+// Verificar se existe valor armazenado no storage
+if (localStorage.getItem("placarJogador")) {
+    placarJogador = Number.parseInt(localStorage.getItem("placarJogador"))
+    placarMaquina = Number.parseInt(localStorage.getItem("placarMaquina"))
+}
+
 function jogar(jogada) {
     
     // Obter a jogada da máquina
@@ -28,6 +34,9 @@ function jogar(jogada) {
 
     // Calcular o placar
     atualizarPlacar(resultado)
+
+    // Salvar o placar das jogadas no Storage do navegador
+    salvarPlacar()
 
     // Atualizar o placar
     exibirPlacar()
@@ -53,6 +62,11 @@ function atualizarPlacar(resultado) {
         // Contar ponto para a Máquina
         placarMaquina++
     }
+}
+
+function salvarPlacar() {
+    localStorage.setItem("placarJogador", placarJogador)
+    localStorage.setItem("placarMaquina", placarMaquina)
 }
 
 function exibirResultado(resultado) {
@@ -175,6 +189,8 @@ function zerarPlacar() {
     // Zerar as variáveis
     placarJogador = 0
     placarMaquina = 0
+
+    localStorage.clear()
 
     alternarLayouts()
 }
